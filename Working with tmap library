@@ -1,0 +1,14 @@
+# Installig and loading the needed packages for this tutorial
+library(tidyverse)  # making data science manipulation much easier
+library(sf)         # Simple features for R for manipulating spatial vector data
+library(tmap)       # Thematic Maps handling
+library(tmaptools)  # Thematic Maps Tools for reading and processing spatial data
+library(RColorBrewer) # ColorBrewer Palettes specially for to make blind colur safe options
+library(leaflet)    # Interactive web maps
+library(rgdal)      # Bindings for the Geospatial Data Abstraction Library(GDAL) and projection transformation operations
+library(rgeos)      # Interface to Geometry Engine - Open Source for geometry queries
+options(digits=4,scipen=999) # limit the decimal presentations to 4 and prevent trigering of scientific notations
+dat_SDN_Hazards <-read.csv("hazardsFig22.csv")# read the csv file
+glimpse(dat) # explore the data
+map_hazards<-inner_join(map,dat_SDN_Hazards) # joining the shapefile with the attribute table
+glimpse(map_hazards)# explore the newly created table by joining the attribute table with the shapefile.
